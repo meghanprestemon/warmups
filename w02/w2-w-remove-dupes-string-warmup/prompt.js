@@ -12,16 +12,24 @@
 
 
 function removeDupes(input){
-	var uniqueString = '';
+	let inputCharacters = input.split('');
+	let uniqueCharacterSet = new Set(inputCharacters);
+	//** Set - creates a new object of unique items;
+	let uniqueCharacters = [...uniqueCharacterSet].join('');
+	return uniqueCharacters;
 
-	for (var i = 0; i < input.length; i++) {
-		var currChar = input[i];
-		if (uniqueString.indexOf(currChar) === -1) {
-			uniqueString += currChar;
-		}
-	}
 
-	return uniqueString;
+
+	// var uniqueString = '';
+	//
+	// for (var i = 0; i < input.length; i++) {
+	// 	var currChar = input[i];
+	// 	if (uniqueString.indexOf(currChar) === -1) {
+	// 		uniqueString += currChar;
+	// 	}
+	// }
+	// 
+	// return uniqueString;
 }
 
 //CI for case insensitive
