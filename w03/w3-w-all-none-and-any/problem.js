@@ -29,16 +29,28 @@ You do not need to worry about the data supplied, it will be an array at all tim
 // [-1, 0, 2].all(isGreaterThanZero) => false
 // *** YOUR CODE HERE ***
 
-
+Array.prototype.all = function (func) {
+  let isTrue = this.filter(num => func(num));
+  return isTrue.length === this.length;
+}
 
 // [-1, 2, 3].none(isLessThanZero) => false
 // [-1, -2, -3].none(isGreaterThanZero) => true
 // *** YOUR CODE HERE ***
 
+Array.prototype.none = function (func) {
+  let isTrue = this.filter(num => !(func(num)));
+  return isTrue.length === this.length;
+}
 
 // [-1, 2, 3].any(isGreaterThanZero) => true
 // [-1, -2, -3].any(isGreaterThanZero) => false
 // *** YOUR CODE HERE ***
+
+Array.prototype.any = function (func) {
+  let isTrue = this.filter(func);
+  return isTrue.length > 0;
+}
 
 
 // use these to test your array methods!
@@ -50,7 +62,7 @@ function isLessThanZero (num) {
   return num < 0;
 }
 
-// write some of your own invocations below, 
+// write some of your own invocations below,
 // do your results match the original expected results?
 // *** YOUR CODE HERE ***
 
